@@ -88,13 +88,40 @@ public class Main {
          }else if(input.equals("2") || input.equals("2.") || input.equals("dos") || input.equals("dos.")){
             System.out.println("*** Ahora esta en el programa de calculo de tablas de multiplicar ***\n");
             while(true){
-               System.out.println("*** Solo valores enteros ***");
-               System.out.print("Ingrese el numero cuya tabla de multiplicar quiere graficar:");
-               String numTable = br.readLine();
-               System.out.print("Ingrese el numero limite para la tabla de multiplicar:");
-               String numLimit = br.readLine();
-               System.out.println("\n" + calculateTable(numTable, numLimit));
-               break;
+               System.out.println(
+                  "Opciones:\n\n" +
+                  "  1. Mostrar todas las tablas (del 1 al 10)\n" +
+                  "  2. Mostrar una tabla con limite establecido.\n" +
+                  "  3. Mostrar una tabla hasta el 10.\n" +
+                  "  4. Salir.\n"
+               );
+               System.out.print("Opcion:");
+               input = br.readLine();
+               if(input.equals("1") || input.equals("1.") || input.equals("uno") || input.equals("uno.")){
+                  System.out.println("");
+                  for (int i = 1; i <= 10; i++) {
+                     System.out.println(calculateTable(Integer.toString(i), "10"));
+                  }
+               }else if(input.equals("2") || input.equals("2.") || input.equals("dos") || input.equals("dos.")){
+                  System.out.println("");
+                  System.out.println("*** Solo valores enteros ***");
+                  System.out.print("Ingrese el numero cuya tabla de multiplicar quiere graficar:");
+                  String numTable = br.readLine();
+                  System.out.print("Ingrese el numero limite para la tabla de multiplicar:");
+                  String numLimit = br.readLine();
+                  System.out.println("\n" + calculateTable(numTable, numLimit));
+               }else if(input.equals("3") || input.equals("3.") || input.equals("tres") || input.equals("tres.")){
+                  System.out.println("");
+                  System.out.println("*** Solo valores enteros ***");
+                  System.out.print("Ingrese el numero cuya tabla de multiplicar quiere graficar:");
+                  String numTable = br.readLine();
+                  System.out.println("\n" + calculateTable(numTable, "10"));
+               }else if(input.equals("4") || input.equals("4.") || input.equals("salir") || input.equals("salir.")){
+                  System.out.println("\n*** Ha elegido salir de las tablas de multiplicar ***\n");
+                  break;
+               }else{
+                  System.out.println("\n[X] Ha ingresado una opcion invalida, intentelo de nuevo...\n");
+               }
             }
          }else if(input.equals("3") || input.equals("3.") || input.equals("tres") || input.equals("tres.")){
             System.out.println("*** El programa ha finalizado ***\n");
